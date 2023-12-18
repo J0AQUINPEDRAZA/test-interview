@@ -1,8 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Primero debe instalar las dependencias requeridas
+
+```bash
+npm install
+
+```
+
+Segundo run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +19,33 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El proyecto esta desarrollado con React.js con Next.js,
+se le agrego la librería de Zustand para manejar el estado global dentro del proyecto
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Como navegar?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+El usuario iniciara su recorrido dentro de la aplicación desde la 'landing page',
+luego deberá loguearse en el apartado 'login' del header, el cual lo llevara al 'home' de un dashboard.
 
-## Learn More
+El dashboard mostrara un formulario de carga para poder generar una venta. Este formulario esta dividido en dos partes: un apartado para elegir un cliente y una sucursal, y un segundo apartado donde el usuario podrá elegir el producto con su respectiva cantidad.
 
-To learn more about Next.js, take a look at the following resources:
+El software se encargara de calcular el subtotal según la cantidad de unidades de ese producto y el total de la venta abarcando todos los productos.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cabe destacar que el usuario podrá elegir entre clientes pre cargados o cargar un cliente nuevo.
+Como ejemplo, los clientes cargados cuentan con el siguiente formato: cliente1, cliente2, cliente3 y sucesivamente hasta el cliente999.
+De igual manera como se menciono anteriormente, el usuario podrá cargar un cliente nuevo con el nombre que desee y luego deberá elegirlo para comenzar a utilizarlo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+En relación a las sucursales el usuario podrá elegir entre aquellas pre cargadas y no tendrá la posibilidad de cargar una nueva.
+Sucursales disponibles: ARGENTINA, PERU, CHILE, ECUADOR, BOLIVIA, CUBA, URUGUAY,BRAZIL, PANAMA, COLOMBIA, EE.UU
+Una vez elegida la sucursal, el programa autocompletará la moneda respectiva de dicha sucursal
 
-## Deploy on Vercel
+En el segundo apartado del formulario, el usuario deberá cargar un producto. Estos se verán restringidos según la sucursal anteriormente elegida; si el producto no esta disponible no podrá elegirse. Una vez seleccionado el mismo, la aplicación rellenará el campo correspondiente a 'precio' con el valor unitario del mismo.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El usuario podrá elegir y modificar la cantidad de unidades del producto seleccionado. Es importante aclarar que por defecto el software seteará el valor en 1 unidad y rellenará el apartado de sub total, calculándose automáticamente por producto y cantidad de unidades elegidas.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Una vez realizado lo anterior, el usuario deberá clickear en el botón de 'Add' que agregará el producto a los datos de la venta anteriormente elegidos. El usuario tendrá la posibilidad de agregar o quitar ese u otro producto de la lista a agregar. En este mismo paso, el programa determinará el total de la venta según la cantidad de productos.
+
+Con la creación de la venta el usuario deberá accionar el botón de 'save' y asi guardarla.
+Antes de concluir esta acción, la aplicación validará que la venta cumpla con todos lo requisitos, que no falte ningún dato y que la información cargada sea correctos.
+
+Al finalizar el usuario podrá ver las ventas guardadas en el apartado de 'Sales' accediendo desde el sidebar del mismo dashboard en el botón de 'carpeta' 📁. En esta vista se renderizaran ventas pre cargadas , realizadas y nuevas que el usuario pueda crear a futuro.
