@@ -20,7 +20,7 @@ bun dev
 ```
 
 El proyecto esta desarrollado con React.js con Next.js,
-se le agrego la librería de Zustand para manejar el estado global dentro del proyecto
+se le agregó la librería de Zustand para manejar el estado global dentro del proyecto
 
 ## Como navegar?
 
