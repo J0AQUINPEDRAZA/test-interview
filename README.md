@@ -7,7 +7,7 @@ npm install
 
 ```
 
-Segundo run the development server:
+Segundo, comandos para levantar el proyecto como desarrollo:
 
 ```bash
 npm run dev
